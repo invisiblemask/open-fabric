@@ -1,6 +1,7 @@
 form {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   gap: 20px;
 
   input {
@@ -9,5 +10,9 @@ form {
     border: 1px solid #d3d2d2;
     outline: none;
     border-radius: 5px;
+  }
+
+  .text-danger {
+    font-size: 15px;
   }
 }

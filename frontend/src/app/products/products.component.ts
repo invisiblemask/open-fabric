@@ -62,5 +62,10 @@ export class ProductsComponent implements OnInit {
     if (modalDiv !== null) {
       modalDiv.style.display = 'none';
     }
+    this.reloadPage();
+  }
+
+  reloadPage(): void {
+    window.location.reload();
   }
 }

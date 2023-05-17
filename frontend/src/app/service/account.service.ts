@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environemt.prod';
 import { User } from '../models/user';
 
 @Injectable({ providedIn: 'root' })
@@ -25,7 +25,7 @@ export class AccountService {
 
   login(username: string, password: string) {
     return this.http
-      .post<User>(`${environment.apiUrl}/login`, {
+      .post<User>(`${environment.apiUrl}/auth/login`, {
         username,
         password,
       })
@@ -47,7 +47,7 @@ export class AccountService {
   }
 
   register(user: User) {
-    return this.http.post(`${environment.apiUrl}/register`, user);
+    return this.http.post(`${environment.apiUrl}/auth/register`, user);
   }
 
   getAll() {

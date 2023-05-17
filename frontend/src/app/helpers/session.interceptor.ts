@@ -7,10 +7,9 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AccountService } from '../service/account.service';
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environemt.prod';
 
-// import { environment } from '@environments/environment';
-// import { AccountService } from '@app/_services';
+const API_USER = environment.apiUrl;
 
 @Injectable()
 export class SessionInterceptor implements HttpInterceptor {
@@ -23,7 +22,7 @@ export class SessionInterceptor implements HttpInterceptor {
     // add auth header with Session if user is logged in and request is to the api url
     const user = this.accountService.userValue;
     const isLoggedIn = user && user.token;
-    const isApiUrl = request.url.startsWith(environment.apiUrl);
+    const isApiUrl = request.url.startsWith(`${API_USER}/auth`);
     if (isLoggedIn && isApiUrl) {
       request = request.clone({
         setHeaders: {

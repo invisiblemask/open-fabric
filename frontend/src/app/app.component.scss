@@ -18,14 +18,26 @@ nav {
 
   .logo {
     width: 60px;
+
+    @media screen and (max-width: 768px) {
+      width: 30px;
+    }
   }
 
   h1 {
     font-size: 24px;
     font-weight: 500;
+
+    @media screen and (max-width: 768px) {
+      font-size: 18px;
+    }
   }
 
   .logout {
     cursor: pointer;
+  }
+
+  .link {
+    font-size: 15px;
   }
 }

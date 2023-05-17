@@ -26,7 +26,8 @@
       <div class="modal-content content">
         <div class="d-flex justify-content-between">
           <h1 class="modal-title fs-5" id="addModalLabel">Add New Product</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            (click)="closeModal()"></button>
         </div>
         <app-add-item (addedProduct)="retrieveProducts()" class="form"></app-add-item>
       </div>

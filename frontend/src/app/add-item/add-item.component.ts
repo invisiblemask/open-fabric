@@ -16,14 +16,14 @@ export class AddItemComponent implements OnInit {
 
   @Input() currentProduct: Product = {
     name: '',
-    image: '',
     price: '',
+    brand: '',
   };
 
   product: Product = {
     name: '',
-    image: '',
     price: '',
+    brand: '',
   };
 
   submitted = false;
@@ -50,14 +50,9 @@ export class AddItemComponent implements OnInit {
   ngOnInit(): void {
     this.productForm = this.formBuilder.group({
       name: ['', Validators.required],
-      image: ['', Validators.required],
       brand: ['', Validators.required],
       price: ['', Validators.required],
     });
-  }
-
-  get image() {
-    return this.productForm.get('image')!;
   }
 
   get name() {
@@ -77,8 +72,7 @@ export class AddItemComponent implements OnInit {
     if (modalDiv !== null) {
       modalDiv.style.display = 'none';
     }
-    this.location.replaceState('/products');
-    this.router.navigate(['/products']);
+    this.reloadPage();
   }
 
   newProduct(): void {

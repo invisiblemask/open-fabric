@@ -9,10 +9,11 @@ import {
 } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, materialize, dematerialize } from 'rxjs/operators';
+import { environment } from '../environments/environemt.prod';
 
 // array in local storage for registered users
-const USER_KEY = 'auth-user';
-let users: any[] = JSON.parse(localStorage.getItem(USER_KEY)!) || [];
+const USER_KEY = environment.apiUrl;
+let users: any[] = JSON.parse(localStorage.getItem(`${USER_KEY}/users`)!) || [];
 
 @Injectable()
 export class BackendInterceptor implements HttpInterceptor {
@@ -61,7 +62,7 @@ export class BackendInterceptor implements HttpInterceptor {
         return error('Username "' + user.username + '" is already taken');
       }
 
-      user.id = users.length ? Math.max(...users.map((x) => x.id)) + 1 : 1;
+      // user.id = users.length ? Math.max(...users.map((x) => x.id)) + 1 : 1;
       users.push(user);
       localStorage.setItem(USER_KEY, JSON.stringify(users));
       return ok();
