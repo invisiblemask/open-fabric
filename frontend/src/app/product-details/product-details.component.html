@@ -1,0 +1,26 @@
+<section *ngIf="product" class="d-flex justify-content-center align-items-center">
+  <img [src]="product.image" alt="">
+  <div>
+    <h2 class="fs-1">{{product.name | uppercase}}</h2>
+    <div class="fs-2">{{product.brand}}</div>
+    <div class="fs-5">
+      ${{product.price}}.00
+    </div>
+    <button data-bs-toggle="modal" data-bs-target="#editModal" class="btn btn-outline-primary btn">Edit Product</button>
+  </div>
+
+</section>
+
+<!--Edit Modal -->
+<div class="modal fade content" id="editModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content content">
+      <div class="d-flex justify-content-between p-3">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Product</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="closeModal()"></button>
+      </div>
+      <app-edit-product class="form p-3" (updatedProduct)="getProductDetail()"></app-edit-product>
+    </div>
+  </div>
+</div>

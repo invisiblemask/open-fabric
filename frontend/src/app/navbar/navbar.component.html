@@ -1,0 +1,20 @@
+<nav class="d-flex align-items-center justify-content-between">
+  <a routerLink="/" class="d-flex align-items-center">
+    <img src="/assets/open-fabric.png" class="logo" alt="Open Fabric Logo">
+    <h1>Open Fabric</h1>
+  </a>
+  <div class="d-flex flex-row gap-3">
+    <div>
+      <a routerLink="/products">Products</a>
+    </div>
+
+    <div *ngIf="!isLoggedIn" class="d-flex flex-row gap-3">
+      <a routerLink="/auth/register">Sign Up</a>
+      <a routerLink="/auth/login">Sign In</a>
+    </div>
+
+    <div *ngIf="isLoggedIn">
+      <a (click)="logout()">Products</a>
+    </div>
+  </div>
+</nav>

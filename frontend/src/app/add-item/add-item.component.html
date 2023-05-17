@@ -1,0 +1,49 @@
+<form [formGroup]="productForm" class="form" (ngSubmit)="onSubmit()">
+  <label for="name">
+    <input id="name" formControlName="name" placeholder="Enter Product Name" class="form-control form-control-sm"
+      [ngClass]="{'is-invalid':name.invalid && (name.dirty || name.touched)}" />
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="invalid-feedback">
+      <div *ngIf="name.errors?.['required']">
+        This field is required.
+      </div>
+    </div>
+  </label>
+  <label for="image">
+    <input type="file" id="image" formControlName="image" accept="image/png" class="form-control form-control-sm"
+      [ngClass]="{'is-invalid':image.invalid && (image.dirty || image.touched)}" />
+    <div *ngIf="image.invalid && (image.dirty || image.touched)" class="invalid-feedback">
+      <div *ngIf="image.errors?.['required']">
+        Please select an image
+      </div>
+    </div>
+  </label>
+
+  <label for="brand">
+    <input id="brand" formControlName="brand" placeholder="Enter Product brand" class="form-control form-control-sm"
+      [ngClass]="{'is-invalid':brand.invalid && (brand.dirty || brand.touched)}" />
+    <div *ngIf="brand.invalid && (brand.dirty || brand.touched)" class="invalid-feedback">
+      <div *ngIf="brand.errors?.['required']">
+        Please enter the brand for this field
+      </div>
+    </div>
+  </label>
+
+  <label for="price">
+    <input id="price" formControlName="price" placeholder="Enter Product Price" class="form-control form-control-sm"
+      [ngClass]="{'is-invalid':price.invalid && (price.dirty || price.touched)}" />
+    <div *ngIf="price.invalid && (price.dirty || price.touched)" class="invalid-feedback">
+      <div *ngIf="price.errors?.['required']">
+        Please enter the price for this field
+      </div>
+    </div>
+  </label>
+
+  <div class="d-flex align-items-center justify-content-end gap-3">
+    <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
+    <button class="btn btn-primary">Add
+      product</button>
+  </div>
+  <div *ngIf="submitted">
+    <h4 class="text-danger fs-6 align-self-center">Tutorial was submitted successfully!</h4>
+  </div>
+</form>

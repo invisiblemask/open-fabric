@@ -1,0 +1,35 @@
+<div class="product">
+  <div class="product-top">
+    <div>
+      <h1>Welcome back, {{user?.username | titlecase}}</h1>
+      <p>You have {{totalProducts}} available Products</p>
+    </div>
+    <div data-bs-toggle="modal" data-bs-target="#addModal" (click)="openModal()"
+      class="add-btn d-flex flex-row justify-content-between align-items-center">
+      <i class="bi bi-plus-lg btn-icon"></i> Add Product
+    </div>
+  </div>
+
+  <div class="products">
+    <div class="product-container fs-6" *ngFor="let product of products" routerLink="/products/{{product._id}}">
+      <!-- <img [src]="product.image" alt=""> -->
+      <div class="product-details">
+        {{product.name}}
+        <div class="brand fs-6 fw-semibold">{{product.brand}}</div>
+        ${{product.price}}
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="addModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content content">
+        <div class="d-flex justify-content-between">
+          <h1 class="modal-title fs-5" id="addModalLabel">Add New Product</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <app-add-item (addedProduct)="retrieveProducts()" class="form"></app-add-item>
+      </div>
+    </div>
+  </div>
+</div>

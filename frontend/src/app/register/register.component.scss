@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+
+  form {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    width: 500px;
+
+
+    input {
+      width: 100%;
+      padding: 15px 10px;
+      border: 1px solid #d3d2d2;
+      outline: none;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+}

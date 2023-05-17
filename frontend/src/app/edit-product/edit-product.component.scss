@@ -1,0 +1,21 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 1rem;
+
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+
+  input {
+    width: 100%;
+    padding: 15px 10px;
+    border: 1px solid #d3d2d2;
+    outline: none;
+    border-radius: 5px;
+  }
+}
